@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Grains — 毎朝焙煎のスペシャルティコーヒーと手作りの食事">
+  <title>Grains — Specialty Coffee</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- スタイルシート -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+    INTRO — オープニングアニメーション
+    ・黒背景に "cafe Grains" が出現
+    ・白バーが左→右にスウィープ（文字を白く塗りつぶす）
+    ・黒バーが追いかけて塗りつぶす
+    ・イントロ全体が上に退場 → ヒーローへ
+  ============================================================ -->
+  <div id="intro">
+    <p id="intro__title">cafe Grains</p>
+    <div id="intro__sweep-white"></div>
+    <div id="intro__sweep-black"></div>
+  </div>
+
+  <!-- ============================================================
+    NAVIGATION
+    ・スクロールで .scrolled クラスが付きボーダー表示（JS）
+    ・リンクホバーで下線が左→右に伸びる（CSS）
+    ・予約ボタンホバーで accent 色が下から塗り上がる（CSS）
+  ============================================================ -->
+  <nav id="mainNav">
+    <div class="nav__logo">Grains</div>
+    <ul class="nav__links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#access">Access</a></li>
+    </ul>
+    <a href="#reserve" class="nav__cta"><span>席を予約する</span></a>
+  </nav>
+
+
+  <!-- ============================================================
+    HERO
+    ・背景画像: images/hero.jpg を置くと表示される
+    ・各テキストは CSS animation で順番に出現（delay 違い）
+    ・H1 の各行（.hl）が下からせり上がる
+    ・背景はスクロールに合わせてパララックス（JS）
+  ============================================================ -->
+  <section class="hero" id="top">
+    <div class="hero__bg" id="heroBg"></div>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow">Specialty Coffee — ○○市△△</p>
+      <h1 class="hero__h1">
+        <span class="hl">豆から、</span>
+        <span class="hl">丁寧に。</span>
+      </h1>
+      <p class="hero__sub">
+        毎朝焙煎したスペシャルティコーヒーと、<br>
+        季節の素材を使った手作りの料理。<br>
+        ゆっくり過ごすための場所です。
+      </p>
+      <div class="hero__actions">
+        <a href="#reserve" class="btn-hero-main">席を予約する</a>
+        <a href="#menu"    class="btn-hero-sub">メニューを見る</a>
+      </div>
+    </div>
+
+    <div class="hero__scroll">
+      <span class="hero__scroll-label">Scroll</span>
+      <span class="hero__scroll-line"></span>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+    FEATURES — 選ばれる理由 3つ
+    ・.fcard に .reveal .d1〜d3 でスタガーフェード
+  ============================================================ -->
+  <section class="features" id="features">
+    <div class="inner">
+      <span class="kicker reveal from-left">Our Values</span>
+      <h2 class="sh2">選ばれる理由、<br>3つ。</h2>
+
+      <div class="features__grid">
+        <div class="fcard reveal d1">
+          <div class="fcard__num">01</div>
+          <h3 class="fcard__title">毎朝の自家焙煎</h3>
+          <p class="fcard__body">産地を厳選したスペシャルティコーヒーを、店内で毎朝少量焙煎。鮮度のピークで提供します。</p>
+        </div>
+        <div class="fcard reveal d2">
+          <div class="fcard__num">02</div>
+          <h3 class="fcard__title">手作りの食事</h3>
+          <p class="fcard__body">地元農家から届く旬の野菜と素材を使い、毎日仕込むフードメニュー。添加物不使用。</p>
+        </div>
+        <div class="fcard reveal d3">
+          <div class="fcard__num">03</div>
+          <h3 class="fcard__title">静かな空間</h3>
+          <p class="fcard__body">BGMは控えめに。Wi-Fiと電源を備えつつ、集中できる静かな環境を整えています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+    ABOUT — ストーリー
+    ・写真: .clip-reveal で下から幕が開く
+    ・写真内部: パラレルスクロール（JS / #aboutParallax）
+    ・テキスト: .reveal で順次フェードアップ
+  ============================================================ -->
+  <section id="about">
+    <div class="inner">
+      <div class="about__inner">
+
+        <div class="about__photo-wrap clip-reveal">
+          <div class="about__photo" id="aboutParallax">
+            <!-- ★ images/about.jpg を置くと表示される -->
+            <img src="images/subhero.PNG" alt="店内の様子">
+          </div>
+        </div>
+
+        <div>
+          <span class="kicker reveal from-left">Our Story</span>
+          <h2 class="sh2">一杯のコーヒーが、<br>誰かの一日を<br>変えるかもしれない。</h2>
+          <div class="rule reveal"></div>
+          <p class="body-txt reveal">
+            ○○市の小さな路地に店を構えて〇年。最初は小さなカウンターだけでした。
+            毎日同じ時間に来てくださる常連さん、初めて来てくれた学生さん、
+            仕事の合間に立ち寄るビジネスパーソン。その一杯一杯が、わたしたちの理由です。
+          </p>
+          <p class="body-txt reveal" style="margin-top: 16px">
+            豆は産地まで足を運んで選び、焙煎は毎朝少量ずつ。
+            変わらない味を守るために、変えることをやめない。
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+    MENU — おすすめメニュー
+    ・ホバーで写真がズームイン（CSS）
+    ・.mcard に .reveal .d1〜d4 でスタガー
+  ============================================================ -->
+  <section class="menu-sec" id="menu">
+    <div class="inner">
+      <div class="menu__header">
+        <div>
+          <span class="kicker reveal from-left">Menu</span>
+          <h2 class="sh2">おすすめの一品</h2>
+        </div>
+        <a href="menu.html" class="menu-all reveal">全メニューを見る →</a>
+      </div>
+
+      <div class="menu-cards">
+        <div class="mcard reveal d1">
+          <div class="mcard__img"><img src="images/longblack.PNG" alt="シグネチャーブレンド"></div>
+          <div class="mcard__body">
+            <div class="mcard__name">シグネチャー<br>ブレンド</div>
+            <div class="mcard__desc">当店自慢の定番ブレンド。甘みとコクのバランス。</div>
+            <div class="mcard__price">¥ 650</div>
+          </div>
+        </div>
+        <div class="mcard reveal d2">
+          <div class="mcard__img"><img src="images/latte.PNG" alt="フラットホワイト"></div>
+          <div class="mcard__body">
+            <div class="mcard__name">季節の<br>フラットホワイト</div>
+            <div class="mcard__desc">旬のフレーバーを合わせた限定ラテ。</div>
+            <div class="mcard__price">¥ 780</div>
+          </div>
+        </div>
+        <div class="mcard reveal d3">
+          <div class="mcard__img"><img src="images/plate.PNG" alt="プレート"></div>
+          <div class="mcard__body">
+            <div class="mcard__name">本日の<br>プレート</div>
+            <div class="mcard__desc">地元野菜中心の日替わりプレートランチ。</div>
+            <div class="mcard__price">¥ 1,100</div>
+          </div>
+        </div>
+        <div class="mcard reveal d4">
+          <div class="mcard__img"><img src="images/cake.PNG" alt="ケーキ"></div>
+          <div class="mcard__body">
+            <div class="mcard__name">手作り<br>バスクチーズケーキ</div>
+            <div class="mcard__desc">毎朝焼き上げ。数量限定。</div>
+            <div class="mcard__price">¥ 520</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+    MID CTA — 中盤の離脱防止 CTA
+  ============================================================ -->
+  <div class="mid-cta">
+    <h2 class="sh2" style="max-width: 600px; margin: 0 auto 32px">
+      まずは一杯、<br>来てみてください。
+    </h2>
+    <a href="#reserve" class="btn-mid reveal">席を予約する</a>
+  </div>
+
+
+  <!-- ============================================================
+    TRUST NUMBERS — 実績数字
+    ・.count 要素が視野に入ったらカウントアップ（JS）
+    ・data-to: 目標値　data-dec: 小数桁数
+  ============================================================ -->
+  <section class="trust" id="trust">
+    <div class="inner">
+      <span class="kicker reveal from-left">By The Numbers</span>
+      <h2 class="sh2">数字で見る、<br>私たちのこと。</h2>
+
+      <div class="trust__grid">
+        <div class="titem reveal d1">
+          <div class="titem__num">
+            <span class="count" data-to="12"  data-dec="0">0</span>
+            <span class="titem__suffix">年</span>
+          </div>
+          <div class="titem__label">創業からの歴史</div>
+        </div>
+        <div class="titem reveal d2">
+          <div class="titem__num">
+            <span class="count" data-to="4.9" data-dec="1">0</span>
+            <span class="titem__suffix">★</span>
+          </div>
+          <div class="titem__label">Googleレビュー</div>
+        </div>
+        <div class="titem reveal d3">
+          <div class="titem__num">
+            <span class="count" data-to="15"  data-dec="0">0</span>
+            <span class="titem__suffix">種</span>
+          </div>
+          <div class="titem__label">コーヒーメニュー</div>
+        </div>
+        <div class="titem reveal d4">
+          <div class="titem__num">
+            <span class="count" data-to="280" data-dec="0">0</span>
+            <span class="titem__suffix">件</span>
+          </div>
+          <div class="titem__label">お客様レビュー数</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+    VOICES — お客様の声
+  ============================================================ -->
+  <section id="voice">
+    <div class="inner">
+      <span class="kicker reveal from-left">Voices</span>
+      <h2 class="sh2">お客様の声</h2>
+
+      <div class="voices__grid">
+        <div class="vcard reveal d1">
+          <p class="vcard__text">「毎週通っています。コーヒーの香りと静かな空間が、週のリセットになっています。」</p>
+          <p class="vcard__name">— M.T. 様 / Google Review ★★★★★</p>
+        </div>
+        <div class="vcard reveal d2">
+          <p class="vcard__text">「手作りのランチプレートが本当においしい。素材を感じられる、丁寧な料理でした。」</p>
+          <p class="vcard__name">— K.S. 様 / Google Review ★★★★★</p>
+        </div>
+        <div class="vcard reveal d3">
+          <p class="vcard__text">「落ち着いた雰囲気で仕事もはかどります。コーヒーの種類が豊富なのも嬉しい。」</p>
+          <p class="vcard__name">— R.O. 様 / Google Review ★★★★★</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+    ACCESS — アクセス・営業時間
+    ・★ Googleマップは .map-ph を iframe に置き換え
+  ============================================================ -->
+  <section class="access" id="access">
+    <div class="inner">
+      <div class="access__inner">
+
+        <div>
+          <span class="kicker reveal from-left">Access</span>
+          <h2 class="sh2">場所と<br>営業時間</h2>
+          <div class="rule reveal"></div>
+          <table class="itable reveal">
+            <tbody>
+              <tr><th>住所</th>    <td>〒000-0000<br>○○県○○市○○町0-0-0</td></tr>
+              <tr><th>アクセス</th><td>○○駅 徒歩8分</td></tr>
+              <tr><th>月〜金</th>  <td>8:00 — 20:00</td></tr>
+              <tr><th>土・日・祝</th><td>9:00 — 19:00</td></tr>
+              <tr class="closed"><th>定休日</th><td>水曜日</td></tr>
+              <tr><th>電話</th>    <td><a href="tel:000-0000-0000" style="color: var(--accent)">000-0000-0000</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="reveal">
+          <!-- ★ Google マップの iframe をここに貼る -->
+          <div class="map-ph">Map</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+    FINAL CTA — 最終の予約導線
+  ============================================================ -->
+  <section class="final-cta" id="reserve">
+    <span class="kicker reveal">Reservation</span>
+    <h2 class="sh2" style="text-align: center">あなたの席を、<br>用意しています。</h2>
+    <div class="fcta__actions reveal">
+      <!-- ★ href を予約システムの URL に変更 -->
+      <a href="#"                    class="btn-fcta-main">オンライン予約</a>
+      <a href="tel:000-0000-0000"    class="btn-fcta-tel">Tel: 000-0000-0000</a>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+    FOOTER
+  ============================================================ -->
+  <footer>
+    <span>© 2026 Grains Coffee. All rights reserved.</span>
+    <div class="footer__links">
+      <a href="#">Instagram</a>
+      <a href="#">Privacy</a>
+    </div>
+  </footer>
+
+
+  <!-- GSAP（ローカル保存済み・インターネット不要） -->
+  <script src="js/gsap.min.js"></script>
+  <script src="js/ScrollTrigger.min.js"></script>
+  <!-- メインスクリプト -->
+  <script src="main.js"></script>
+
+</body>
+</html>
